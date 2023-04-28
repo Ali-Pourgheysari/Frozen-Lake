@@ -29,13 +29,40 @@ for i in range(size):
     for j in range(size):
         coords[i*size+j] = (i, j)
 
+# Markov Decision Process(policy function)
+def MDP():
+    for i in range(size-1, -1, -1):
+        for j in range(size-1, -1, -1):
+            # get the cell number
+            cell_number = i * size + j
+            # if the cell is the goal, then the reward is 1
+            if i == j == 15:
+                continue
+            # if the cell is the hole, then the reward is 0
+            if (grid[cell_number][0][0][1] == cell_number) and (grid[cell_number][0][0][3] == True):
+                rewards[i][j] = 0.0
+                continue
+
+            # if the cell is not the goal or the hole, then the reward is the sum of the neighbor cells according to the transition probability
+            state_list = []
+            for k in range(4):
+                reward_sum = 0.0
+                for item in grid[cell_number][k]:
+                    row_index, col_index = coords[item[1]]
+                    reward_sum += (1/3) * rewards[row_index][col_index]
+                state_list.append(0.9 * reward_sum)
+            # get the maximum reward of the neighbor cells
+            rewards[i][j] = max(state_list)
+
+
 
 
 for _ in range(max_iter_number):
 
     ##################################
 
-   
+    MDP()
+    
 
     ##################################
 

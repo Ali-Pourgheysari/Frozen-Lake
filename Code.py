@@ -54,7 +54,23 @@ def MDP():
             # get the maximum reward of the neighbor cells
             rewards[i][j] = max(state_list)
 
+# find the action that leads to maximum reward
+def get_action():
+    row_index, col_index = coords[observation]
 
+    neighbor_indexes = {}
+    if col_index - 1 >= 0:
+        neighbor_indexes[0] = rewards[row_index][col_index - 1]
+    if row_index + 1 < size:
+        neighbor_indexes[1] = rewards[row_index + 1][col_index]
+    if col_index + 1 < size:
+        neighbor_indexes[2] = rewards[row_index][col_index + 1]
+    if row_index - 1 >= 0:
+        neighbor_indexes[3] = rewards[row_index - 1][col_index]
+
+    max_key = max(neighbor_indexes, key=neighbor_indexes.get)
+
+    return max_key
 
 
 for _ in range(max_iter_number):
@@ -62,7 +78,7 @@ for _ in range(max_iter_number):
     ##################################
 
     MDP()
-    
+    action = get_action()
 
     ##################################
 

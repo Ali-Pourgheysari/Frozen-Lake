@@ -1,39 +1,48 @@
-#import library
+# import library
 
 import gymnasium as gym
 
 from gymnasium.envs.toy_text.frozen_lake import generate_random_map
+import numpy as np
 
-#create Enviroment
+size = 16
 
-env = gym.make("FrozenLake-v1", desc=generate_random_map(size=16), render_mode="human", is_slippery=True)
+# impliment the environment
+# if is_slippery is True, then the agent will slip to the other cell with the probability of 1/3
+# if is_slippery is False, then the agent will go to the neighbor cell with maximum reward and will always rich the goal
+env = gym.make("FrozenLake-v1", desc=generate_random_map(size=size),
+               render_mode="human", is_slippery=True)
 
 observation, info = env.reset(seed=42)
 
 max_iter_number = 1000
 
+# get the transition matrix that contains(transition probability, next state, reward, terminated)
+grid = env.unwrapped.P
+# rewards matrix
+rewards = [[0.0 for _ in range(size)] for _ in range(size)]
+rewards[size-1][size-1] = 1
+
+# pre-calculate the coordinates of all cells
+coords = np.zeros((size*size, 2), dtype=int)
+for i in range(size):
+    for j in range(size):
+        coords[i*size+j] = (i, j)
+
+
+
 for _ in range(max_iter_number):
 
-   ##################################
+    ##################################
 
-   # # TODO # #
+   
 
-   # The action selection (policy) function should appear here
+    ##################################
 
-   # which returns an action
+    observation, reward, terminated, truncated, info = env.step(action)
 
-   # .sample() returns a random action!
+    if terminated or truncated:
 
-   # Replace this line with a call to your implemented function
-
-   action = env.action_space.sample()
-
-   ##################################
-
-   observation, reward, terminated, truncated, info = env.step(action)
-
-   if terminated or truncated:
-
-      observation, info = env.reset()
+        observation, info = env.reset()
 
 env.close()

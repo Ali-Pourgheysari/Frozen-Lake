@@ -36,7 +36,7 @@ def MDP():
             # get the cell number
             cell_number = i * size + j
             # if the cell is the goal, then the reward is 1
-            if i == j == 15:
+            if i == j == size - 1:
                 continue
             # if the cell is the hole, then the reward is 0
             if (grid[cell_number][0][0][1] == cell_number) and (grid[cell_number][0][0][3] == True):

@@ -32,4 +32,4 @@ pip install gym
  This script was created to demonstrate the use of Dynamic Programming for solving the FrozenLake environment in OpenAI Gym. It can serve as a starting point for more advanced reinforcement learning algorithms and tasks. Feel free to adjust the script to your needs. ❄
 
  Read the complete documentation [HERE](Documentation.pdf).
-Also you can read [THIS](Code_review.pdf) code review for more details.
+Also you can read [THIS](Code_review.pdf) code review for more details about the code.

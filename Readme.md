@@ -3,12 +3,12 @@
 
  ## Requirements
 * Python 3.x
-* OpenAI Gym
+* OpenAI Gym library (gymnasium)
 
 ## How to use
 1. Install Dependencies: Make sure you have Python 3.x installed. Install the required library using the following command:
 ```
-pip install gym
+pip install gymnasium
 ```
 2. Run the script:Execute the script, and it will apply Dynamic Programming (Markov Decision Process) to calculate the optimal policy for the FrozenLake environment.
 

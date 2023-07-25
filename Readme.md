@@ -2,8 +2,8 @@
  This Python script demonstrates how to apply Dynamic Programming techniques to solve the FrozenLake environment in OpenAI Gym. The FrozenLake environment is a grid world where the agent navigates through a frozen lake to reach the goal while avoiding holes. The goal is to find an optimal policy that leads to the highest reward.
 
  ## Requirements
-    * Python 3.x
-    * OpenAI Gym
+* Python 3.x
+* OpenAI Gym
 
 ## How to use
 1. Install Dependencies: Make sure you have Python 3.x installed. Install the required library using the following command:

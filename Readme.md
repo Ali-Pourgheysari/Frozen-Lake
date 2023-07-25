@@ -29,7 +29,7 @@ pip install gym
  The script aims to find the optimal policy that maximizes the agent's rewards in the FrozenLake environment. The output is not explicitly displayed in this script, but you can observe the agent's progress and the rewards matrix during the iterative process. However, you can modify the script to display additional information or visualize the results.
 
  ## Credits
- This script was created to demonstrate the use of Dynamic Programming for solving the FrozenLake environment in OpenAI Gym. It can serve as a starting point for more advanced reinforcement learning algorithms and tasks. The FrozenLake environment is part of the OpenAI Gym library.
+ This script was created to demonstrate the use of Dynamic Programming for solving the FrozenLake environment in OpenAI Gym. It can serve as a starting point for more advanced reinforcement learning algorithms and tasks. Feel free to adjust the script to your needs. ❄
 
  Read the complete documentation [HERE](Documentation.pdf).
 Also you can read [THIS](Code_review.pdf) code review for more details.
